@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import security.product.services.ProdutoService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping
 public class ProdutoController {
@@ -12,17 +14,17 @@ public class ProdutoController {
     private ProdutoService service;
 
     @GetMapping
-    public List<Produto> listar() {
+    public List<er.sec.models.ProdutoModel> listar() {
         return service.listarTodos();
     }
 
     @PostMapping
-    public Produto salvar(@RequestBody Produto produto) {
+    public er.sec.models.ProdutoModel salvar(@RequestBody er.sec.models.ProdutoModel produto) {
         return service.salvar(produto);
     }
 
     @GetMapping("/{id}")
-    public Produto buscar(@PathVariable Long id) {
+    public er.sec.models.ProdutoModel buscar(@PathVariable Long id) {
         return service.buscarPorId(id);
     }
 

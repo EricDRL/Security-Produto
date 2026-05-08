@@ -4,21 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import security.product.repositories.ProdutoRepository;
 
+import java.util.List;
+
 @Service
 public class ProdutoService {
 
     @Autowired
     private ProdutoRepository repository;
 
-    public List<Produto> listarTodos() {
+    public List<er.sec.models.ProdutoModel> listarTodos() {
         return repository.findAll();
     }
 
-    public Produto salvar(Produto produto) {
+    public er.sec.models.ProdutoModel salvar(er.sec.models.ProdutoModel produto) {
         return repository.save(produto);
     }
 
-    public Produto buscarPorId(Long id) {
+    public er.sec.models.ProdutoModel buscarPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
